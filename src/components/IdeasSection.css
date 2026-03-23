@@ -1,0 +1,454 @@
+/* ===============================
+   IDEAS SECTION
+================================ */
+.ideas {
+  padding: 10vh 6vw;
+  background: #fff;
+}
+
+/* Header */
+.ideas-header h2 {
+  font-size: 36px;
+  font-weight: 600;
+  color: #000;
+  margin: 0;
+  position: relative;
+  z-index: 5;
+}
+
+.ideas-line {
+  height: 1px;
+  width: 100%;
+  background: #000;
+  margin-bottom: 6vh;
+}
+
+/* ===============================
+   DESKTOP & TABLET GRID (Default)
+================================ */
+.ideas-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: repeat(2, auto);
+  gap: 32px;
+}
+
+.ideas-mobile {
+  display: none;
+}
+
+/* Card */
+.idea-card {
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+}
+
+/* Cover block */
+.idea-cover {
+  padding: 24px;
+  min-height: 260px;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background: #6b6f75;
+  transition: background 0.35s ease;
+}
+
+/* Override red/dark */
+.idea-cover.red,
+.idea-cover.dark {
+  background: #6b6f75;
+}
+
+/* Hover → red */
+.idea-card:hover .idea-cover,
+.idea-card:hover .idea-cover.red,
+.idea-card:hover .idea-cover.dark {
+  background: #ef3d3d;
+}
+
+.idea-type {
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  opacity: 0.9;
+}
+
+.idea-cover h3 {
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 1.3;
+}
+
+/* Meta */
+.idea-meta {
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+  color: #555;
+  margin: 14px 0;
+  transition: color 0.35s ease;
+}
+
+/* Description */
+.idea-desc {
+  font-size: 14px;
+  line-height: 1.6;
+  color: #333;
+  flex-grow: 1;
+  transition: color 0.35s ease;
+}
+
+/* CTA */
+.idea-cta {
+  margin-top: 12px;
+  font-size: 14px;
+  color: #555;
+  cursor: pointer;
+  position: relative;
+  transition: color 0.35s ease;
+}
+
+/* ===============================
+   HOVER: TEXT RED
+================================ */
+.idea-card:hover .idea-meta {
+  color: #ef3d3d;
+}
+
+.idea-card:hover .idea-desc {
+  color: #ef3d3d;
+}
+
+.idea-card:hover .idea-cta {
+  color: #ef3d3d;
+}
+
+/* CTA underline */
+.idea-cta::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 0%;
+  height: 2px;
+  background: #ef3d3d;
+  transition: width 0.3s ease;
+}
+
+.idea-card:hover .idea-cta::after {
+  width: 100%;
+}
+
+
+
+/* ===============================
+   MOBILE CAROUSEL
+================================ */
+@media (max-width: 767px) {
+  .ideas-desktop-tablet {
+    display: none;
+  }
+
+  .ideas-mobile {
+    display: block;
+    position: relative;
+  }
+
+  .embla {
+    overflow: hidden;
+  }
+
+  .embla__container {
+  display: flex;
+  margin-left: -8px;   /* half of gap */
+}
+
+.embla__slide {
+  flex: 0 0 calc(50% - 8px);
+  min-width: 0;
+  padding-left: 16px;   /* half of gap */
+}
+
+
+  .embla__slide .idea-card {
+    height: 100%;
+  }
+}
+
+/* ===================================
+   FULL EDITORIAL MODAL
+=================================== */
+
+/* ================================
+   BLUR BACKDROP
+================================ */
+
+.idea-modal-overlay {
+  position: fixed;
+  inset: 0;
+  backdrop-filter: blur(12px);
+  background: rgba(0, 0, 0, 0.35);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 4vh 4vw;
+  z-index: 9999;
+}
+
+/* ================================
+   CENTERED CARD
+================================ */
+
+.idea-modal-card {
+  background: #f7f7f7;
+  width: 100%;
+  max-width: 1200px;
+  max-height: 90vh;
+  overflow-y: auto;
+  padding: 70px 80px;
+  position: relative;
+  animation: modalFade 0.4s ease;
+}
+
+/* Close Button */
+.idea-modal-close {
+  position: absolute;
+  top: 30px;
+  right: 40px;
+  font-size: 22px;
+  border: none;
+  background: none;
+  cursor: pointer;
+  color: #333;
+}
+
+/* Small label */
+.idea-modal-label {
+  font-size: 16px;
+  margin-bottom: 30px;
+  display: block;
+  color: #333;
+}
+
+/* Large Serif Title */
+.idea-modal-title {
+  font-family: "Georgia", serif;
+  font-size: clamp(52px, 5vw, 80px);
+  line-height: 1.05;
+  font-weight: 400;
+  margin-bottom: 40px;
+  color: #222;
+}
+
+/* Meta */
+.idea-modal-meta {
+  font-size: 16px;
+  margin-bottom: 60px;
+  color: #333;
+}
+
+.idea-author-link {
+  color: #e53935;
+  text-decoration: none;
+}
+
+.idea-author-link:hover {
+  text-decoration: underline;
+}
+
+/* =================================
+   TEXT : IMAGE GRID LAYOUT
+================================= */
+
+.idea-modal-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 90px;
+  align-items: start;
+}
+
+/* LEFT COLUMN — TEXT */
+.idea-modal-content {
+  max-width: 720px;
+}
+
+.idea-modal-content p {
+  font-size: 20px;
+  line-height: 1.9;
+  margin-bottom: 28px;
+  color: #222;
+}
+
+/* RIGHT COLUMN — IMAGE */
+.idea-modal-image {
+  width: 100%;
+}
+
+.idea-modal-image img {
+  width: 100%;
+  display: block;
+}
+
+/* Highlight text */
+.idea-highlight {
+  font-weight: 500;
+}
+
+.idea-newsletter a {
+  color: #e53935;
+  text-decoration: underline;
+}
+
+/* Divider */
+.idea-divider {
+  height: 1px;
+  background: #ccc;
+  margin: 60px 0;
+}
+
+/* Footnote */
+.idea-footnote {
+  font-style: italic;
+  font-size: 18px;
+  margin-bottom: 60px;
+  color: #333;
+}
+
+/* Share */
+.idea-share {
+  font-size: 26px;
+  color: #e53935;
+}
+
+/* ================================
+   RESPONSIVE
+================================ */
+
+@media (max-width: 992px) {
+  .idea-modal-card {
+    padding: 50px 40px;
+  }
+
+  .idea-modal-grid {
+    grid-template-columns: 1fr;
+    gap: 50px;
+  }
+
+  .idea-modal-image {
+    order: -1; /* Image on top for tablet/mobile */
+  }
+
+  .idea-modal-title {
+    font-size: 40px;
+  }
+}
+
+/* ================================
+   ANIMATION
+================================ */
+
+@keyframes modalFade {
+  from {
+    transform: translateY(40px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* ===============================
+   DOT PAGINATION (NEW)
+================================ */
+.embla__dots {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 24px;
+}
+
+.embla__dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #ccc;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.embla__dot.is-selected {
+  background: #ef3d3d;
+  transform: scale(1.2);
+}
+.idea-card .idea-cover {
+  background: #6b6f75;
+  transition: background 0.6s ease;
+}
+
+.idea-card.is-colored .idea-cover {
+  background: #ef3d3d;
+}
+
+/* ===============================
+   MOBILE TOUCH DEFAULT RED
+================================ */
+@media (hover: none) {
+  .idea-cover,
+  .idea-cover.red,
+  .idea-cover.dark {
+    background: #ef3d3d;
+  }
+
+  .idea-cta {
+    color: #ef3d3d;
+  }
+}
+
+/* ===============================
+   EXTRA SMALL MOBILE
+================================ */
+@media (max-width: 480px) {
+  .ideas {
+    padding: 6vh 4vw;
+  }
+
+  .ideas-header h2 {
+    font-size: 28px;
+  }
+
+  .idea-cover {
+    min-height: 220px;
+    padding: 20px;
+  }
+
+  .idea-cover h3 {
+    font-size: 18px;
+  }
+}
+/* =========================================
+   iPad 10th Gen Portrait (820px) — Fix Grid
+   ========================================= */
+@media (min-width: 768px) and (max-width: 900px) and (orientation: portrait) {
+
+  .ideas-grid {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: 18px;                 /* reduce gap so 5 fit */
+  }
+
+  .ideas {
+    padding: 8vh 4vw;          /* slightly tighter container */
+  }
+
+  .idea-cover {
+    min-height: 220px;         /* reduce vertical bulk */
+    padding: 18px;
+  }
+
+  .idea-cover h3 {
+    font-size: 17px;
+  }
+}

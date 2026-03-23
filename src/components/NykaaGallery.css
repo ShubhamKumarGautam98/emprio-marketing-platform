@@ -1,0 +1,94 @@
+/* ===============================
+   WRAPPER
+================================ */
+
+.nykaa-wrapper {
+  background: #000;
+  width: 100%;
+  overflow-x: hidden;
+}
+
+/* ===============================
+   BLOCKS — DESKTOP CINEMATIC
+================================ */
+
+.nykaa-block {
+  min-height: 110vh;
+  display: flex;
+  align-items: center;
+  padding: 10vh 8vw;
+}
+
+.nykaa-block.left {
+  justify-content: flex-start;
+}
+
+.nykaa-block.right {
+  justify-content: flex-end;
+}
+
+/* ===============================
+   IMAGE
+================================ */
+
+.nykaa-image {
+  width: 70%;
+  max-width: 1200px;
+  height: auto;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.nykaa-image:hover {
+  transform: scale(1.02);
+}
+
+/* ===============================
+   TABLET
+================================ */
+
+@media (max-width: 1024px) {
+
+  .nykaa-block {
+    min-height: 80vh;
+    padding: 8vh 6vw;
+  }
+
+  .nykaa-image {
+    width: 85%;
+  }
+}
+
+/* ===============================
+   MOBILE
+================================ */
+
+@media (max-width: 768px) {
+
+  .nykaa-block {
+    min-height: auto;
+    padding: 5vh 0;
+    justify-content: center !important;
+  }
+
+  .nykaa-image {
+    width: 100%;
+    max-width: 100%;
+    transform: none;
+  }
+
+  .nykaa-image:hover {
+    transform: none;
+  }
+}
+
+/* ===============================
+   SMALL MOBILE
+================================ */
+
+@media (max-width: 480px) {
+
+  .nykaa-block {
+    padding: 3vh 0;
+  }
+}

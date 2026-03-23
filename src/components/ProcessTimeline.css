@@ -1,0 +1,100 @@
+/* ---------------- Wrapper ---------------- */
+
+.process-wrapper {
+  background: #a23030;
+  color: #000;
+  padding: 120px 4vw 20px;
+  position: relative;
+}
+
+/* ---------------- Timeline ---------------- */
+
+.process-timeline {
+  position: relative;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Progressive vertical line */
+.process-line {
+  position: absolute;
+  left: 46%;
+  top: 0;
+  width: 1px;
+  background: #000;
+  transition: height 0.6s ease;
+}
+
+/* ---------------- Stage Layout ---------------- */
+
+.stage {
+  display: grid;
+  grid-template-columns: 45% 10% 45%;
+  align-items: center;
+  margin-bottom: clamp(80px, 10vh, 120px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+/* ---------------- States ---------------- */
+
+.stage.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.stage.previous {
+  opacity: 0.45;
+  transform: translateY(0);
+}
+
+.stage.future {
+  opacity: 0;
+  transform: translateY(40px);
+}
+
+/* ---------------- Left Section ---------------- */
+
+.stage-left {
+  position: relative;
+  padding-right: 40px;
+}
+
+.stage-number {
+  font-size: 220px;
+  font-weight: 700;
+  line-height: 1;
+  color: #111;
+}
+
+.stage-label {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  border: 2px solid #000;
+  padding: 14px 24px;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  background: #fff;
+}
+
+/* ---------------- Dot ---------------- */
+
+.stage-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #fff;
+  border: 2px solid #000;
+  justify-self: center;
+  z-index: 2;
+}
+
+/* ---------------- Content ---------------- */
+
+.stage-content {
+  font-size: 16px;
+  line-height: 1.8;
+  max-width: 420px;
+}

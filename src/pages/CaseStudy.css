@@ -1,0 +1,131 @@
+/* ===============================
+   BASE
+================================ */
+
+.case-not-found {
+  color: #fff;
+  text-align: center;
+  padding: 20px;
+}
+
+/* ===============================
+   END SECTION
+================================ */
+
+.case-end {
+  min-height: 60vh;
+  background: #000;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  align-items: center;
+  justify-content: center;
+}
+
+.case-end-text {
+  font-size: 18px;
+  text-align: center;
+}
+
+.case-download-link {
+  color: #fff;
+  letter-spacing: 2px;
+  text-decoration: none;
+  border-bottom: 1px solid rgba(255,255,255,0.4);
+  font-size: 14px;
+  transition: border 0.25s ease;
+}
+
+.case-download-link:hover {
+  border-bottom: 1px solid #fff;
+}
+
+/* ===============================
+   NEXT SECTION
+================================ */
+
+.case-next {
+  min-height: 40vh;
+  background: #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.case-next-link {
+  color: #fff;
+  font-size: 20px;
+  letter-spacing: 2px;
+  text-decoration: none;
+  transition: opacity 0.25s ease;
+}
+
+.case-next-link:hover {
+  opacity: 0.7;
+}
+
+/* ===============================
+   MOBILE RESPONSIVE
+================================ */
+
+@media (max-width: 767px) {
+
+  .case-end {
+    min-height: 50vh;
+    gap: 16px;
+    padding: 20px;
+  }
+
+  .case-end-text {
+    font-size: 14px;
+  }
+
+  .case-download-link {
+    font-size: 12px;
+    padding: 10px 0;
+    min-height: 44px; /* touch target */
+    display: inline-block;
+  }
+
+  .case-next {
+    min-height: 30vh;
+    padding: 20px;
+  }
+
+  .case-next-link {
+    font-size: 16px;
+    padding: 10px;
+    min-height: 44px;
+    display: inline-block;
+  }
+}
+
+/* ===============================
+   SMALL MOBILE
+================================ */
+
+@media (max-width: 375px) {
+  .case-end-text {
+    font-size: 13px;
+  }
+
+  .case-next-link {
+    font-size: 15px;
+  }
+}
+
+/* ===============================
+   TABLET
+================================ */
+
+@media (min-width: 768px) and (max-width: 1023px) {
+
+  .case-end {
+    min-height: 55vh;
+  }
+
+  .case-next {
+    min-height: 35vh;
+  }
+}

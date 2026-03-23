@@ -1,0 +1,352 @@
+/* ===============================
+   FOOTER BASE — IMAGE BACKGROUND
+================================ */
+.footer {
+  width: 100%;
+  min-height: 708.4px;                 /* design height */
+
+  background-image: url("../assets/footer-wave.png"); /* ⭐ replace with your image name */
+  background-repeat: no-repeat;
+  background-position: center bottom;
+  background-size: cover;
+
+  font-family: var(--font-family);
+  color: #fff;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;           /* pushes content toward wave area */
+
+  overflow: hidden;
+  position: relative;
+}
+.footer-top {
+  position: relative;
+  z-index: 5;
+}
+
+.footer-newsletter {
+  position: relative;
+  z-index: 10;   /* input sits above logo */
+}
+
+.footer-logo {
+  pointer-events: none;  /* ⭐ allows clicks to pass through */
+}
+
+/* ===============================
+   TOP AREA (LOGO + EMAIL)
+================================ */
+.footer-top {
+  padding: 120px 6vw 60px;
+}
+
+.footer-logo {
+  width: 420px;          /* base layout size (controls spacing) */
+  height: auto;
+  display: block;
+  margin-bottom: 300px;
+  margin-left: -80px;
+  margin-top: -490px;
+  
+  transform: scale(2.2);   /* ⭐ visual size = ~1260px */
+  transform-origin: left top;
+}
+
+/* ===============================
+   EMAIL INPUT
+================================ */
+.footer-newsletter {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-left: -40px;
+  margin-top: -90px;
+}
+
+.footer-input {
+  background: transparent;
+  border: 1px solid rgba(255,255,255,0.8);
+  border-radius: 100px;
+  padding: 14px 26px;
+  color: #ffffff;
+  font-size: 16px;
+  outline: none;
+  width: 275px;
+  text-align: center;
+  font-weight: 600;
+   opacity: 1;    
+}
+
+.footer-arrow {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  border: none;
+  background: #ff2200;
+  color: #fff;
+  font-size: 20px;
+  cursor: pointer;
+  transition: transform .25s ease;
+  margin-left: 10px;
+}
+
+.footer-arrow:hover {
+  transform: translateY(-3px);
+}
+
+/* ===============================
+   REMOVE OLD WAVE + BG BLOCKS
+================================ */
+.footer-wave {
+  display: none;      /* no fake gradient needed anymore */
+}
+
+/* ===============================
+   BOTTOM CONTENT
+================================ */
+.footer-bottom {
+  background: transparent;   /* remove white block */
+  text-align: center;
+  padding: 40px 6vw;
+  color: #111;
+}
+
+/* TAGLINE */
+.footer-tagline {
+  font-size: 18px;
+  margin-bottom: 12px;
+  
+}
+
+.footer-connect {
+  color: #ff2200;
+  font-weight: 600;
+  text-decoration: underline;   /* ✅ always visible */
+  text-underline-offset: 4px;   /* optional — cleaner spacing */
+}
+.footer-connect:hover {
+  text-decoration: underline;
+}
+
+/* COPYRIGHT — CENTERED BLOCK */
+.footer-copy {
+  font-size: 14px;
+  color: #666;
+  margin-top: 40px;
+  margin-bottom: -40px;
+}
+
+/* ===============================
+   SOCIAL ICON ROW — RIGHT ALIGN
+================================ */
+.footer-row {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  max-width: 1100px;
+  margin: 18px auto 0;
+  width: 100%;
+  
+}
+
+.footer-social {
+  display: flex;
+  gap: 20px;
+  font-size: 28px;
+  margin-right: -160px;
+  color: #fff;
+}
+
+.footer-social svg {
+  cursor: pointer;
+  transition: transform .25s ease, color .25s ease;
+}
+
+.footer-social svg:hover {
+  transform: translateY(-3px);
+  color: #ff2200;
+}
+
+/* =====================================
+   TABLET (768px – 1024px)
+   Desktop styles remain untouched
+===================================== 
+@media (max-width: 1180px) {
+  .footer {
+    min-height: 560px;
+    padding: 0 4vw;
+  }
+  /* Scale down giant transformed logo 
+  .footer-logo {
+    transform: scale(1.9);   
+    margin-left: -60px;
+    margin-top: -420px;
+    margin-bottom: 220px;
+  }
+  .footer-newsletter {
+    margin-left: 0;
+    justify-content: center;
+  }
+  .footer-input {
+    width: 260px;
+    font-size: 15px;
+  }
+  .footer-row {
+    justify-content: center;
+    margin-top:-40px;
+  }
+  
+  .footer-social {
+    margin-right: -580px
+  }
+}*/
+/* =====================================
+   MOBILE (≤768px)
+===================================== */
+@media (max-width: 768px) {
+  .footer {
+    min-height: auto; /* Allow content to dictate height */
+    padding: 0 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+  }
+  .footer-top {
+    display: flex;
+    flex-direction: column;
+    align-items: center;   /* Center layout on mobile */
+    padding: 60px 0 20px; /* Adjust padding */
+    width: 100%;
+  }
+  /* ⭐ Cinematic Logo Alignment */
+  .footer-logo {
+    transform: scale(1.4);    /* Adjusted scale for mobile */
+    transform-origin: center center;
+    width: auto;              /* Let width be auto */
+    max-width: 80%;           /* Prevent overflow */
+    margin: 0 auto 30px;      /* Center horizontally */
+    display: block;
+    position: relative;
+    left: auto;
+    top: -40px;
+  }
+  /* Email Input */
+  .footer-newsletter {
+    margin-left: 0;
+    justify-content: center;
+    width: 100%;
+    margin-bottom: 80px;
+    margin-top: -60px;
+  }
+  .footer-input {
+  width: 100%;
+  max-width: 280px;
+  text-align: center;
+  font-size: 16px;   /* ✅ prevent mobile zoom */
+}
+  .footer-bottom {
+    padding: 20px 0 30px; /* Reduced side padding, handled by container */
+    width: 100%;
+  }
+  /* Tagline */
+  .footer-tagline {
+    font-size: 15px;
+    text-align: center;   /* ⭐ ensures center alignment */
+    margin-bottom: -30px;
+    margin-top: 90px;
+    line-height: 1.4;
+  }
+  /* Bottom Row Container */
+  .footer-row {
+    display: flex;
+    justify-content: space-between;   /* ⭐ Critical: Pushes items to edges */
+    align-items: center;
+    margin: 0;
+    width: 100%;
+    max-width: 100%;
+  }
+  /* Copyright - Left Aligned */
+  .footer-copy {
+    font-size: 12px;
+    text-align: left;
+    margin: 0; /* Reset margins */
+    color: #666;
+    flex: 1; /* Allow it to take space */
+    margin-top: 40px;
+    margin-bottom: -40px;
+  }
+  /* Social Icons - Right Aligned */
+  .footer-social {
+    display: flex;
+    gap: 12px;
+    font-size: 18px;
+    color: #111; /* Make visible on light background if needed */
+   margin-left: auto;
+padding-right:150px; 
+ margin-top: 24px; 
+  }
+}
+ /* =====================================================
+   LARGE TABLET / iPAD PRO — PORTRAIT (1024px width, 1366px height)
+   Exact device targeting to maintain center layout and scaling
+===================================================== */
+@media screen and (min-width: 820px) and (max-width: 1180px) and (orientation: portrait) {
+  .footer {
+    min-height: 660px;
+  }
+
+  .footer-logo {
+    transform: scale(1.65);   /* Smooth scaling between 11th Gen and desktop */
+    margin-left: -50px;
+    margin-top: -90px;
+    margin-bottom: 230px;
+  }
+
+  .footer-newsletter {
+    margin-left: -480px;
+    justify-content: center;
+  }
+
+  .footer-input {
+    width: 225px;
+  }
+
+  .footer-row {
+    justify-content: center;
+  }
+
+  .footer-social {
+    color: #111;
+    margin-right: -600px;
+  }
+}
+
+/* =====================================================
+   LARGE TABLET / iPAD PRO — LANDSCAPE (1366px width, 1024px height)
+   Close to desktop feel, prevents overflow or logo cutoff
+===================================================== */
+@media screen and (min-width: 1221px) and (max-width: 1366px) and (orientation: landscape) {
+  .footer {
+    min-height: 700px;
+  }
+
+  .footer-logo {
+    transform: scale(2.05);   /* Slightly smaller than the 2.2 desktop scale */
+    margin-left: -100px;
+    margin-top: -460px;
+    margin-bottom: 270px;
+  }
+
+  .footer-newsletter {
+    margin-left: -20px;
+  }
+  
+  .footer-row {
+    max-width: 1240px;        /* Expand row width slightly to utilize 1366px space */
+  }
+
+  .footer-social {
+    margin-right: -80px;      /* Prevent social icons from pushing out of bounds */
+  }
+}

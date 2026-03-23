@@ -1,0 +1,839 @@
+/* ===============================
+   DESKTOP LAYOUT (>= 1024px)
+================================ */
+.work-brand-item,
+.work-event-item,
+.work-brand-circle,
+.work-event-card {
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  will-change: transform;
+}
+
+/* WORK WRAPPER */
+.work-wrapper {
+  width: 100%;
+  min-height: 115vh;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+.work-page-title {
+  position: absolute;
+  top: 90px;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  z-index: 4;
+}
+.work-page-title h1 {
+  font-size: 82px;
+  font-weight: 600;
+  color: #111;
+  font-family: 'Inter', sans-serif;
+}
+
+.work-page-title h2 {
+  margin-top: 8px;
+  font-size: 24px;
+  letter-spacing: 3px;
+  font-weight: 600;
+  color: #666;
+}
+
+/* SIDE LABELS */
+.work-side-label {
+  position: absolute;
+  font-size: 48px;
+  font-weight: 700;
+  color: rgba(200, 200, 200, 0.35);
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+  z-index: 1;
+}
+.work-side-label-left { left: 10px; top: 50%; transform: translateY(-50%) rotate(180deg); }
+.work-side-label-right { right: 10px; top: 50%; transform: translateY(-50%) rotate(180deg); }
+
+/* SECTIONS */
+.work-section {
+  width: 50%;
+  height: 100%;
+  position: relative;
+}
+
+/* ORBITS */
+.work-orbit-container {
+  --work-orbit-radius: 380px;
+  --work-item-radius: 54px;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.work-orbit-left { left: -50px; } /* Anchored to left edge */
+.work-orbit-right { --work-orbit-radius-right: 350px; right: -50px; }
+
+.work-section.right .work-orbit-container {
+  left: auto;
+  right: 0px;
+  transform: translateY(-50%);
+}
+
+/* ITEM WRAPPERS */
+.work-item-wrapper, .work-item-wrapper-right {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+}
+
+/* BASE ITEM */
+.work-item {
+  width: calc(var(--work-item-radius) * 2);
+  height: calc(var(--work-item-radius) * 2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: translate(-50%, -50%);
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+/* CIRCULAR ITEMS (BRANDS) */
+.work-item-circle { border-radius: 50%; background: transparent; }
+.work-item-circle.center {
+  background: #fff;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.22);
+}
+.work-item-circle .work-image {
+  filter: grayscale(100%);
+  opacity: 0.7;
+  transition: filter 0.4s ease, opacity 0.4s ease, transform 0.4s ease;
+}
+.work-item-circle.center .work-image {
+  filter: grayscale(0%);
+  opacity: 1;
+  transform: scale(calc(var(--logo-scale) * 1.3));
+}
+.work-item-circle.center {
+  /* CHANGED: Apply circle styles only when centered/popped up */
+  background: #fff;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  box-shadow:
+    0 0 0 2px rgba(0, 0, 0, 0.15),
+    0 14px 30px rgba(0, 0, 0, 0.22),
+    0 0 40px rgba(0, 0, 0, 0.1);
+}
+.work-item-circle:hover {
+  transform: translate(-50%, -50%) scale(1.15);
+  background: #fff; /* Added background on hover for better visibility */
+  box-shadow:
+    0 0 0 3px rgba(201, 74, 74, 0.3),
+    0 20px 40px rgba(0, 0, 0, 0.25),
+    0 0 60px rgba(201, 74, 74, 0.2);
+  z-index: 20;
+}
+
+/* SQUARE ITEMS (EVENTS) */
+.work-item-square {
+  --work-item-width: 200px;
+  --work-item-height: 120px;
+  width: var(--work-item-width);
+  height: var(--work-item-height);
+  border-radius: 0;
+  background: #fff;
+  border: none;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
+  overflow: hidden;
+  transition: box-shadow 0.4s ease, transform 0.05s linear;
+  padding: 0;
+  cursor: pointer;
+  transform: translate(-50%, -50%) scale(0.68);
+}
+
+.work-item-square .work-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: grayscale(100%);
+  opacity: 0.7;
+  transition: filter 0.4s ease, opacity 0.4s ease, transform 0.4s ease;
+}
+
+.work-item-square.center .work-image {
+  filter: grayscale(0%);
+  opacity: 1;
+  transform: scale(2.58); 
+}
+
+.work-item-square.center {
+   transform: translate(-50%, -50%) scale(1.12);
+  box-shadow: 
+    0 20px 50px rgba(0, 0, 0, 0.3),
+    0 0 50px rgba(201, 74, 74, 0.15);
+  z-index: 10;
+}
+
+.work-item-square:hover {
+  box-shadow:
+    0 0 0 3px rgba(201, 74, 74, 0.4),
+    0 25px 50px rgba(0, 0, 0, 0.35),
+    0 0 70px rgba(201, 74, 74, 0.25);
+  z-index: 20;
+}
+
+.work-item-square:hover .work-image {
+  filter: grayscale(0%);
+  opacity: 1;
+  transform: scale(1.05);
+}
+
+/* IMAGE */
+.work-image {
+  width: 85%;
+  height: 85%;
+  object-fit: contain;
+  transform: scale(var(--logo-scale));
+  transition: transform 0.35s ease, filter 0.4s ease, opacity 0.4s ease;
+}
+
+/* CENTRAL LABELS */
+.work-section .work-central-label {
+  position: absolute;
+  top: 50%;
+  left: calc(48% + 120px);
+  transform: translateY(-50%);
+  font-size: 18px;
+  font-weight: 600;
+  color: #111;
+  text-align: left;
+  white-space: nowrap;
+  z-index: 2;
+  pointer-events: none;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.work-central-name {
+  font-size: 18px;
+  font-weight: 600;
+  color: #111;
+}
+
+.work-central-subtitle {
+  font-size: 13px;
+  font-weight: 400;
+  color: #c94a4a;
+  font-style: italic;
+}
+
+.work-section.right .work-central-label,
+.work-central-label-right {
+  position: absolute;
+  top: 50%;
+  left: calc(-210px);
+  right: auto;
+  transform: translateY(-50%);
+  text-align: right;
+  color: #111;
+  white-space: nowrap;
+}
+
+/* WRITE-UP (Desktop) */
+.work-writeup {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  max-width: 500px;
+  padding: 26px 34px;
+  background: #fff;
+  /*border-radius: 16px;*/
+  text-align: center;
+}
+
+.work-writeup-text {
+  font-size: 16px;
+  line-height: 1.6;
+  font-weight: 500;
+  color: #222;
+  margin: 0 0 14px;
+}
+
+.work-writeup-link {
+  display: inline-block;
+  font-size: 14px;
+  font-weight: 600;
+  color: #c94a4a;
+  text-decoration: none;
+  letter-spacing: 0.5px;
+  position: relative;
+}
+
+.work-writeup-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 100%;
+  height: 2px;
+  background: #c94a4a;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s ease;
+}
+
+.work-writeup-link:hover::after {
+  transform: scaleX(1);
+}
+
+/* ===============================
+   MOBILE/TABLET LAYOUT (< 1024px)
+================================ */
+
+.work-page-mobile {
+  width: 100%;
+  min-height: 100svh;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow-x: hidden;
+  padding: 30px 0 50px;
+}
+
+/* TOP SECTION - BRANDS ARC */
+.work-brands-section {
+  width: 100%;
+  margin-top: -30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 10px;
+  position: relative;
+}
+
+.work-section-label {
+  font-size: 24px;
+  font-weight: 600;
+  letter-spacing: 10px;
+  color: rgba(200, 200, 200, 0.4);
+  text-transform: uppercase;
+  margin-bottom: 15px;
+}
+
+/* Brands arc container */
+.work-brands-arc {
+  position: relative;
+  width: 100%;
+  height: 250px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Brand items */
+.work-brand-item {
+  position: absolute;
+  transition: opacity 0.4s ease;
+}
+
+.work-brand-item.hidden {
+  pointer-events: none;
+}
+
+/* Brand circle */
+.work-brand-circle {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: #fff;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.4s ease;
+}
+
+.work-brand-circle.center {
+  width: 100px;
+  height: 100px;
+  border: 3px solid rgba(200, 200, 200, 0.3);
+  box-shadow: 
+    0 0 0 6px rgba(240, 240, 240, 0.8),
+    0 8px 30px rgba(0, 0, 0, 0.15);
+}
+
+/* Brand images */
+.work-brand-image {
+  width: 70%;
+  height: 70%;
+  object-fit: contain;
+  filter: grayscale(100%);
+  opacity: 0.5;
+  transition: all 0.4s ease;
+}
+
+.work-brand-circle.center .work-brand-image {
+  filter: grayscale(0%);
+  opacity: 1;
+  width: 75%;
+  height: 75%;
+}
+
+/* Brand center label */
+.work-brand-center-label {
+  position: absolute;
+  top: -40px;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  z-index: 5;
+}
+
+.work-brand-name {
+  font-size: 15px;
+  font-weight: 600;
+  color: #111;
+}
+
+.work-brand-subtitle {
+  font-size: 11px;
+  font-weight: 400;
+  color: #c94a4a;
+}
+
+/* MIDDLE SECTION - TITLE & WRITEUP */
+.work-middle-section {
+  width: 100%;
+  max-width: 600px;
+  text-align: center;
+  padding: 30px 20px;
+}
+
+.work-title-mobile {
+  font-size: 48px;
+  font-weight: 600;
+  color: #111;
+  margin: 0;
+  text-transform: lowercase;
+  line-height: 1.1;
+}
+
+.work-subtitle-mobile {
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: 3px;
+  color: #666;
+  margin: 8px 0 25px;
+}
+
+.work-writeup-content {
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.work-writeup-text-mobile {
+  font-size: 14px;
+  line-height: 1.65;
+  color: #333;
+  margin: 0 0 15px;
+}
+
+.work-read-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #111;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.work-arrow {
+  color: #c94a4a;
+  font-size: 16px;
+  transition: transform 0.3s ease;
+}
+
+.work-read-link:hover .work-arrow {
+  transform: translateX(4px);
+}
+
+/* BOTTOM SECTION - EVENTS ARC */
+.work-events-section {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  padding-bottom: 10px;
+}
+
+/* Events arc container */
+.work-events-arc {
+  position: relative;
+  width: 100%;
+  height: 280px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding-top: 40px;
+}
+
+/* Event items */
+.work-event-item {
+  position: absolute;
+  transition: opacity 0.4s ease;
+}
+
+.work-event-item.hidden {
+  pointer-events: none;
+}
+
+/* Event card */
+.work-event-card {
+  width: 100px;
+  height: 70px;
+  background: #fff;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.12);
+  overflow: hidden;
+  transition: all 0.4s ease;
+}
+
+.work-event-card.center {
+  width: 160px;
+  height: 100px;
+  box-shadow: 0 10px 35px rgba(0, 0, 0, 0.2);
+  transform: rotate(0deg) !important;
+}
+
+/* Event images */
+.work-event-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: grayscale(100%);
+  opacity: 0.7;
+  transition: all 0.4s ease;
+}
+
+.work-event-card.center .work-event-image {
+  filter: grayscale(0%);
+  opacity: 1;
+}
+
+/* Event center label */
+.work-event-center-label {
+  position: absolute;
+  top: 155px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 14px;
+  font-weight: 600;
+  color: #111;
+  white-space: nowrap;
+  z-index: 15;
+}
+
+/* Bottom label */
+.work-section-label-bottom {
+  margin-top: 30px;
+  margin-bottom: 0;
+}
+
+/* ===============================
+   TABLET ADJUSTMENTS (768px - 1023px)
+================================ */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .work-brands-arc {
+    height: 300px;
+  }
+  
+  .work-brand-circle {
+    width: 70px;
+    height: 70px;
+  }
+  
+  .work-brand-circle.center {
+    width: 120px;
+    height: 120px;
+  }
+  
+  .work-title-mobile {
+    font-size: 56px;
+  }
+  
+  .work-subtitle-mobile {
+    font-size: 20px;
+  }
+  
+  .work-events-arc {
+    height: 350px;
+  }
+  
+  .work-event-card {
+    width: 120px;
+    height: 85px;
+  }
+  
+  .work-event-card.center {
+    width: 190px;
+    height: 120px;
+  }
+  
+  .work-event-center-label {
+    top: 180px;
+  }
+  .work-middle-section {
+    max-width: 720px;   /* gives breathing room */
+  }
+
+  .work-writeup-text-mobile {
+    font-size: 15px;    /* tablet readability */
+  }
+
+  .work-brand-name {
+    font-size: 17px;    /* prevent cramped text */
+  }
+}
+
+/* ===============================
+   MOBILE ADJUSTMENTS (< 768px)
+================================ */
+@media (max-width: 767px) {
+  .work-page-mobile {
+    padding: 20px 0 40px;
+  }
+  
+  .work-section-label {
+    font-size: 14px;
+    letter-spacing: 6px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, 10%);
+    text-align: center;
+    z-index: 5;
+  }
+  
+  .work-brands-arc {
+    height: 200px;
+    position: relative;
+  }
+  
+  .work-brand-circle {
+    width: 50px;
+    height: 50px;
+  }
+  
+  .work-brand-circle.center {
+    width: 85px;
+    height: 85px;
+  }
+  
+  .work-brand-center-label {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    z-index: 5;
+  }
+  
+  .work-brand-name {
+    font-size: 13px;
+    margin-top: 30px;
+  }
+  
+  .work-brand-subtitle {
+    font-size: 10px;
+  }
+  
+  .work-title-mobile {
+    font-size: 36px;
+  }
+  
+  .work-subtitle-mobile {
+    font-size: 14px;
+    letter-spacing: 2px;
+  }
+  
+  .work-writeup-text-mobile {
+    font-size: 13px;
+  }
+  
+  .work-events-arc {
+    height: 220px;
+    padding-top: 30px;
+    position: relative;
+  }
+  
+  .work-event-card {
+    width: 80px;
+    height: 55px;
+  }
+  
+  .work-event-card.center {
+    width: 130px;
+    height: 85px;
+  }
+  
+  .work-event-center-label {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    font-size: 13px;
+    z-index: 5;
+  }
+}
+
+/* ===============================
+   HOVER EFFECTS (Mobile/Tablet)
+================================ */
+.work-brand-circle:hover .work-brand-image {
+  filter: grayscale(0%);
+  opacity: 1;
+}
+
+.work-event-card:hover .work-event-image {
+  filter: grayscale(0%);
+  opacity: 1;
+}
+
+
+/* =====================================================
+   TABLET PORTRAIT (768px – 900px)
+   Balanced vertical layout
+===================================================== */
+@media screen 
+and (min-width: 820px) 
+and (max-width: 1180px) 
+and (orientation: portrait) {
+
+  .work-brands-arc {
+    height: 260px;
+  }
+
+  .work-brand-circle {
+    width: 65px;
+    height: 65px;
+  }
+
+  .work-brand-circle.center {
+    width: 110px;
+    height: 110px;
+  }
+
+  .work-middle-section {
+    max-width: 640px;
+    padding: 24px 18px;
+  }
+
+  .work-title-mobile {
+    font-size: 48px;
+  }
+
+  .work-subtitle-mobile {
+    font-size: 18px;
+    letter-spacing: 2.5px;
+  }
+
+  .work-event-image {
+    transform-origin: center;
+  }
+}
+
+
+/* =====================================================
+   TABLET LANDSCAPE (901px – 1023px)
+   Wider cinematic spacing
+===================================================== */
+@media screen 
+and (min-width: 901px) 
+and (max-width: 1023px) 
+and (orientation: landscape) {
+
+  .work-brands-arc {
+    height: 320px;
+  }
+
+  .work-brand-circle {
+    width: 25px;
+    height: 75px;
+  }
+
+  .work-brand-circle.center {
+    width: 130px;
+    height: 130px;
+  }
+
+  .work-middle-section {
+    max-width: 760px;
+  }
+
+  .work-title-mobile {
+    font-size: 60px;
+  }
+
+  .work-subtitle-mobile {
+    font-size: 22px;
+    letter-spacing: 3px;
+  }
+
+  .work-writeup-text-mobile {
+    font-size: 16px;
+  }
+}
+@media (min-width: 1024px) and (max-width: 1280px) and (orientation: landscape) {
+  
+  /* 1. Reduce the size of the central heading text */
+  .work-page-title {
+    top: 60px; /* Slightly shifted up to balance the view */
+  }
+  .work-page-title h1 {
+    font-size: 62px;
+  }
+  
+  .work-page-title h2 {
+    font-size: 18px;
+    letter-spacing: 2.5px;
+  }
+  /* 2. Slightly reduce the orbit radius and item sizes */
+  .work-orbit-container {
+    --work-item-radius: 44px; /* Reduced from 54px for brand circles */
+  }
+  /* Override React inline styles securely without touching the JS */
+  .work-orbit-left {
+    --work-orbit-radius: 320px !important; /* Reduced from 380px */
+  }
+  
+  .work-orbit-right {
+    --work-orbit-radius-right: 290px !important; /* Reduced from 350px/330px */
+  }
+  /* Shrink the event rectangular cards */
+  .work-item-square {
+    --work-item-width: 160px; /* Reduced from 200px */
+    --work-item-height: 96px; /* Reduced from 120px */
+  }
+  /* 3. Ensure the center card stays visually centered and doesn't overlap the tighter orbits */
+  .work-writeup {
+    max-width: 420px; /* Scaled down from 500px to fit between orbits */
+    padding: 20px 24px;
+  }
+  
+  .work-writeup-text {
+    font-size: 15px; /* Scaled down for better proportion */
+    line-height: 1.5;
+  }
+}

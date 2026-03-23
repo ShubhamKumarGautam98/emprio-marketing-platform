@@ -1,0 +1,338 @@
+/* ===============================
+   CIRCLE CAPABILITIES
+================================ */
+:root {
+  --base-big-radius: 320px;
+  --base-small-radius: 52px;
+  --base-gap: 12px;
+}
+
+.circle-capabilities-wrapper {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  background: var(--color-black);
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-family);
+  padding: 0;
+}
+
+/* MOBILE: Column layout - Circle on top, Text on bottom */
+.circle-capabilities-wrapper.mobile {
+  min-height: auto;
+  flex-direction: column;
+  padding: 20px 20px 40px;
+}
+
+/* ===============================
+   TEXT SECTION
+================================ */
+.circle-text-section {
+  width: 40%;
+  
+  color: var(--color-white);
+  padding: -200px;
+  line-height: 1.8;
+  /*text-align: left;*/
+  order: 2; /* Desktop: Text on right */
+}
+
+/* MOBILE: Text on bottom */
+.circle-text-section.mobile {
+  width: 100%;
+  padding: 30px 20px 0;
+  text-align: center;
+  order: 2; /* Mobile: Text second (bottom) */
+}
+
+.circle-title {
+  font-size: 34px;
+  font-weight: 600;
+  margin-bottom: 24px;
+}
+
+.circle-text-section.mobile .circle-title {
+  font-size: 26px;
+  margin-bottom: 16px;
+}
+
+.circle-description {
+  max-width: 520px;
+  opacity: 0.85;
+  font-size: 16px;
+}
+
+.circle-text-section.mobile .circle-description {
+  max-width: 100%;
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+/* ===============================
+   CIRCLE SECTION
+================================ */
+.circle-section {
+  position: relative;
+  width: 50%;
+  height: 100%;
+  order: 1; /* Desktop: Circle on left */
+}
+
+/* MOBILE: Circle on top, half visible */
+.circle-section.mobile {
+  width: 100%;
+  height: 50vh;
+  order: 1; /* Mobile: Circle first (top) */
+  position: relative;
+  overflow: hidden;
+}
+
+/* ===============================
+   HERO IMAGE
+================================ */
+.circle-hero-image {
+  position: absolute;
+  left: 0%;
+  top: 0%;
+  width: 160px;
+  transform: translate(-50%, -40%) translateX(0);
+  z-index: 3;
+  pointer-events: none;
+  transition: all var(--transition-slow);
+}
+
+/* MOBILE: Center image at bottom of visible area */
+.circle-section.mobile .circle-hero-image {
+  width: 120px;
+  left: 50%;
+  top: 85%;
+  transform: translate(-50%, -50%);
+}
+
+/* ===============================
+   ORBIT CONTAINER
+================================ */
+.circle-orbit-container {
+  --orbit-radius: 320px;
+  --item-radius: 52px;
+  
+  position: absolute;
+  top: 50%;
+  left: 25%;
+  transform: translate(-50%, -50%) translateX(calc(-1 * var(--orbit-radius)));
+}
+
+/* MOBILE: Position circle at bottom, top half visible */
+.circle-section.mobile .circle-orbit-container {
+  --orbit-radius: 204px;
+  --item-radius: 38px;
+  
+  top: 78%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* ===============================
+   ORBIT RING
+================================ */
+.circle-orbit-ring {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: calc(var(--orbit-radius) * 2);
+  height: calc(var(--orbit-radius) * 2);
+  border-radius: 50%;
+  border: none;
+  transform: translate(-50%, -50%);
+}
+
+/* ===============================
+   ITEM WRAPPER & CIRCLE ITEM
+================================ */
+.circle-item-wrapper {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+}
+
+.circle-item {
+  position: relative;
+  width: calc(var(--item-radius) * 2);
+  height: calc(var(--item-radius) * 2);
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  color: var(--color-white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  user-select: none;
+  font-weight: 600;
+  padding: 6px;
+  font-size: 12px;
+  transform: translate(-50%, -50%);
+}
+
+.circle-section.mobile .circle-item {
+  font-size: 9px;
+  padding: 4px;
+}
+
+.circle-item:hover {
+  transform: translate(-50%, -50%) scale(1.15);
+  background: rgba(0, 0, 0, 0.95);
+  border-color: var(--color-white);
+}
+
+.circle-item.center {
+  transform: translate(-50%, -50%) scale(1.25);
+  box-shadow: 0 0 35px rgba(255, 255, 255, 0.8);
+}
+
+.circle-item:focus-visible {
+  outline: 2px solid var(--color-white);
+  outline-offset: 4px;
+}
+
+/* =====================================================
+   TABLET — PORTRAIT ONLY (iPad 11th Gen focus)
+   Adjust circle scale + spacing without changing layout
+===================================================== */
+@media screen and (min-width: 901px) and (max-width: 1024px) and (orientation: portrait) {
+
+  /* Reduce orbit size so it fits vertically */
+  .circle-orbit-container {
+    --orbit-radius: 240px;   /* was 280px */
+    --item-radius: 42px;
+    left: 0%;               /* center horizontally */
+    transform: translate(-50%, -50%);
+  }
+
+  /* Balance text + circle proportions */
+  .circle-text-section {
+    width: 45%;
+    padding-left: 4vw;
+  }
+
+  .circle-section {
+    width: 55%;
+  }
+
+  /* Hero image scale for portrait height */
+  .circle-hero-image {
+    width: 190px;
+    margin-left: 80px;
+  }
+  
+  /* REMOVE EXTRA TOP/BOTTOM SPACE IN PORTRAIT */
+  .circle-capabilities-wrapper {
+    min-height: auto; /* Removes the forced 100vh full-screen height */
+    padding: 60px 0;  /* Adjust the 60px to increase/decrease top & bottom spacing */
+    align-items: center;
+  }
+}
+/* =====================================================
+   TABLET — PORTRAIT ONLY (iPad 11th Gen focus)
+   Adjust circle scale + spacing without changing layout
+===================================================== */
+@media screen and (min-width: 820px) and (max-width: 1180px) and (orientation: portrait) {
+
+  /* Reduce orbit size so it fits vertically */
+  .circle-orbit-container {
+    --orbit-radius: 240px;   /* was 280px */
+    --item-radius: 42px;
+    left: 0%;               /* center horizontally */
+    transform: translate(-50%, -50%);
+  }
+
+  /* Balance text + circle proportions */
+  .circle-text-section {
+    width: 45%;
+    padding-left: 4vw;
+  }
+
+  .circle-section {
+    width: 55%;
+  }
+
+  /* Hero image scale for portrait height */
+  .circle-hero-image {
+    width: 190px;
+    margin-left: 80px;
+  }
+  
+  /* REMOVE EXTRA TOP/BOTTOM SPACE IN PORTRAIT */
+  .circle-capabilities-wrapper {
+    min-height: auto; /* Removes the forced 100vh full-screen height */
+    padding: 60px 0;  /* Adjust the 60px to increase/decrease top & bottom spacing */
+    align-items: center;
+  }
+}
+
+/* =====================================================
+   IPAD PRO — LANDSCAPE
+   Adjust circle scale + spacing without changing layout
+===================================================== */
+@media screen and (min-width: 1025px) and (max-width: 1366px) and (orientation: landscape) {
+
+  .circle-orbit-container {
+    --orbit-radius: 280px;
+    --item-radius: 48px;
+    left: 0%; /* Center closer to the text */
+    transform: translate(-50%, -50%);
+  }
+
+  .circle-text-section {
+    width: 40%;
+    padding-left: 0vw;
+  }
+
+  .circle-section {
+    width: 60%;
+  }
+
+  .circle-hero-image {
+    width: 180px;
+    transform: translate(-50%, -50%) translateX(50%);
+  }
+
+  /* REMOVE EXTRA TOP/BOTTOM SPACE IN LANDSCAPE */
+  .circle-capabilities-wrapper {
+    min-height: auto; /* Removes the forced 100vh full-screen height */
+    padding: 60px 0;  /* Adjust the 60px to increase/decrease top & bottom spacing */
+    align-items: center;
+  }
+}
+
+/* ===============================
+   RESPONSIVE - SMALL MOBILE
+================================ */
+@media (max-width: 400px) {
+  .circle-section.mobile .circle-orbit-container {
+    --orbit-radius: 160px;
+    --item-radius: 32px;
+  }
+  
+  .circle-section.mobile .circle-item {
+    font-size: 8px;
+  }
+  
+  .circle-section.mobile .circle-hero-image {
+    width: 100px;
+  }
+  
+  .circle-text-section.mobile .circle-title {
+    font-size: 22px;
+  }
+  
+  .circle-text-section.mobile .circle-description {
+    font-size: 13px;
+  }
+}

@@ -1,0 +1,128 @@
+.clients-wrapper {
+  min-height: 100vh;
+  background-color: #fff;
+  padding: 80px 8vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 64px;
+  overflow: hidden;
+}
+
+@media (max-width: 767px) {
+  .clients-wrapper {
+    min-height: 80vh;
+    padding: 40px 4vw;
+    gap: 32px;
+  }
+}
+
+.clients-title {
+  font-size: clamp(64px, 12vw, 140px);
+  font-weight: 800;
+  letter-spacing: 6px;
+  color: #111;
+  text-align: center;
+  transition: all 0.8s ease;
+  opacity: 0;
+  transform: translateY(40px);
+}
+
+.clients-title.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.clients-grid {
+  width: 100%;
+  max-width: 1200px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 64px 72px;
+  align-items: center;
+  transition: all 0.8s ease;
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+.clients-grid.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (max-width: 767px) {
+  .clients-grid {
+    grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+    gap: 24px 32px;
+  }
+}
+
+/* BASE LOGO */
+.client-logo {
+  --scale-factor: 1;
+  max-width: 140px;
+  max-height: 60px;
+  object-fit: contain;
+  margin: 0 auto;
+  opacity: 0.85;
+  filter: grayscale(100%) brightness(0.9);
+  transition: all 0.35s ease;
+  cursor: pointer;
+  transform: scale(var(--scale-factor));
+}
+
+@media (max-width: 767px) {
+  .client-logo {
+    max-width: 80px;
+    max-height: 40px;
+  }
+}
+
+/* ✅ AUTO POP STATE */
+/* AUTO STATE */
+.client-logo.auto-active {
+  opacity: 1;
+  filter: grayscale(0%) brightness(1);
+  transform: scale(var(--scale-factor)); /* ← remove hover motion */
+}
+
+/* HOVER / TOUCH STATE */
+.client-logo.hover-active:not(.auto-active) {
+  opacity: 1;
+  filter: grayscale(0%) brightness(1);
+  transform: translateY(-6px) scale(calc(var(--scale-factor) * 1.08));
+}
+
+/* KEEP YOUR ORIGINAL HOVER TOO */
+@media (min-width: 1024px) {
+  .client-logo:not(.auto-active):not(.hover-active):hover {
+    opacity: 1;
+    transform: translateY(-6px) scale(calc(var(--scale-factor) * 1.08));
+    filter: grayscale(0%) brightness(1);
+  }
+}
+
+/* Per-logo scaling (unchanged) */
+.client-logo[data-logo="vijohn"] { --scale-factor: 1.75; }
+.client-logo[data-logo="hero"] { --scale-factor: 1.45; }
+.client-logo[data-logo="microsoft"] { --scale-factor: 0.80; }
+.client-logo[data-logo="vlcc"] { --scale-factor: 0.85; }
+.client-logo[data-logo="hongkong-tourism"] { --scale-factor: 1.45; }
+.client-logo[data-logo="baileys"] { --scale-factor: 1.75; }
+.client-logo[data-logo="gmr"] { --scale-factor: 2.25; }
+.client-logo[data-logo="rkmarble"] { --scale-factor: 1.75; }
+.client-logo[data-logo="simba"] { --scale-factor: 1.25; }
+.client-logo[data-logo="royalcrest"] { --scale-factor: 2.25; }
+.client-logo[data-logo="sawaeed"] { --scale-factor: 2.25; }
+.client-logo[data-logo="baraka"] { --scale-factor: 2.25; }
+.client-logo[data-logo="pnb"] { --scale-factor: 1.75; }
+.client-logo[data-logo="hyatt"] { --scale-factor: 0.75; }
+.client-logo[data-logo="waymo"] { --scale-factor: 1.25; }
+.client-logo[data-logo="stl"] { --scale-factor: 1.55; }
+.client-logo[data-logo="waisl"] { --scale-factor: 0.75; }
+.client-logo[data-logo="charged"] { --scale-factor: 1.25; }
+.client-logo[data-logo="sunscoop"] { --scale-factor: 0.90; }
+.client-logo[data-logo="kingfisher"] { --scale-factor: 1.25; }
+.client-logo[data-logo="ap"] { --scale-factor: 1.45; }
+.client-logo[data-logo="miniso"] { --scale-factor: 1.2; }

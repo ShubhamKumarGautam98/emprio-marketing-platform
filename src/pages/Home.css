@@ -1,0 +1,157 @@
+/* ==========================================================================
+   GLOBAL & LAYOUT
+   ========================================================================== */
+/* Prevent horizontal scroll */
+body {
+  overflow-x: hidden;
+}
+main {
+  overflow-x: hidden;
+  width: 100%;
+}
+/* Accessibility: Reduce motion */
+@media (prefers-reduced-motion: reduce) {
+  .hero-logo {
+    transition: none;
+  }
+}
+/* ==========================================================================
+   HERO SECTION (BASE / DESKTOP)
+   ========================================================================== */
+.home-hero {
+  position: relative;
+  width: 100vw;
+  min-height: 120vh;
+  background-image: url('../assets/emprio-hero.webp');
+  background-position: center;
+  background-size: 75%;
+  background-repeat: no-repeat;
+  overflow: hidden;
+}
+/* Hero Logo Animation - Default Centered */
+.hero-logo {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  z-index: 1100;
+  height: calc(650px * var(--logo-scale, 1));
+  object-fit: contain;
+  opacity: 1;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  transition: 
+    top 0.8s cubic-bezier(0.4, 0, 0.2, 1),
+    left 0.8s cubic-bezier(0.4, 0, 0.2, 1),
+    height 0.8s cubic-bezier(0.4, 0, 0.2, 1),
+    transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+/* Hero Logo - Scrolled State */
+.hero-logo.scrolled {
+  top: -15px;
+  left: 40px;
+  height: calc(100px * var(--logo-scale, 1));
+  transform: translate(0, 0);
+}
+/* ==========================================================================
+   TABLET & IPAD STYLES (768px - 1366px)
+   ========================================================================== */
+/* Standard Tablet (768px - 1023px) */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .home-hero.tablet {
+    background-size: cover;
+  }
+}
+/* iPad Pro Portrait (1024px - 1366px) */
+@media (min-width: 1024px) and (max-width: 1366px) and (orientation: portrait) {
+  .home-hero {
+    background-position: center 20%; /* Slight upward framing */
+    background-size: cover;          /* Increase visual scale */
+  }
+}
+/* ==========================================================================
+   MOBILE STYLES (< 768px)
+   ========================================================================== */
+@media (max-width: 767px) {
+  /* Match real viewport height and remove bottom margin */
+  .home-hero {
+    min-height: 100dvh !important;
+    margin-bottom: 0;
+  }
+  /* Mobile Hero Container */
+  .home-hero.mobile {
+    min-height: auto;
+    margin-top: -60px;
+    background-position: center;
+    background-size: 210%;
+  }
+  
+  /* Pull circles upward into hero to remove gap */
+  .home-section-circles {
+    padding-top: 0;
+    margin-top: -200px;
+  }
+  
+  /* Mobile Logo - Starts at top-left instead of center animation */
+  .hero-logo.mobile {
+    top: 40%;
+    left: 50%;
+    height: calc(880px * var(--logo-scale, 1));
+    transform: translate(-50%, -50%);
+    transition:
+      top 0.5s ease,
+      left 0.5s ease,
+      transform 0.5s ease,
+      height 0.5s ease;
+  }
+  /* Mobile Logo - Scrolled State */
+  .hero-logo.mobile.scrolled {
+    top: -12px;
+    left: 16px;
+    height: calc(160px * var(--logo-scale, 1));
+    transform: translate(0, 0);
+  }
+}
+/* ==========================================================================
+   LARGE MOBILE / PHABLET (576px - 767px)
+   ========================================================================== */
+@media (min-width: 576px) and (max-width: 767px) {
+  .hero-logo.mobile,
+  .hero-logo.mobile.scrolled {
+    height: calc(100px * var(--logo-scale, 1));
+  }
+}
+/* ==========================================================================
+   LANDSCAPE MODE ON MOBILE
+   ========================================================================== */
+@media (max-width: 767px) and (orientation: landscape) {
+  .home-hero.mobile {
+    min-height: 100vh;
+  }
+  
+  .hero-logo.mobile {
+    top: 5px;
+    left: 16px;
+    height: calc(80px * var(--logo-scale, 1));
+  }
+  
+  .hero-logo.mobile.scrolled {
+    top: 5px;
+    height: calc(80px * var(--logo-scale, 1));
+  }
+}
+/* ==========================================================================
+   SMALL MOBILE (< 375px)
+   ========================================================================== */
+@media (max-width: 374px) {
+  .home-hero.mobile {
+    background-size: cover;
+  }
+  
+  .hero-logo.mobile,
+  .hero-logo.mobile.scrolled {
+    left: 1
+2px;
+height: calc(95px * var(--logo-scale, 1));
+}
+}
+

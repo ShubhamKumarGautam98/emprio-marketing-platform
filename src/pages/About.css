@@ -1,0 +1,229 @@
+/* ===============================
+   ABOUT HERO SECTION
+================================ */
+.about-hero-section {
+  position: relative;
+  min-height: 100vh;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  padding: 0 8%;
+  color: #ffffff;
+  overflow: hidden;
+}
+/* Bottom blur effect */
+.about-hero-overlay::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 200px;
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.9) 0%,
+    rgba(0, 0, 0, 0.4) 50%,
+    transparent 100%
+  );
+  z-index: 1;
+}
+.about-hero-content {
+  position: absolute;
+  z-index: 2;
+  max-width: 70%;
+  bottom: 0;
+  margin-bottom: -20px;
+  padding-bottom: 40px;
+}
+.about-hero-heading {
+  font-size: clamp(36px, 4vw, 64px);
+  font-weight: 600;
+  line-height: 1.1;
+  margin-bottom: 24px;
+}
+.about-hero-text {
+  font-size: clamp(16px, 1.2vw, 20px);
+  line-height: 1.7;
+  color: #e5e5e5;
+}
+/* ===============================
+   PARTNERS SECTION — CINEMATIC MERGE
+================================ */
+.about-partner-section {
+  position: relative;
+  overflow: hidden;
+  padding: 80px 6%;
+  background: #0a0a0a;
+}
+/* =========================================
+   CINEMATIC PRO LIGHT BEAM
+   bottom-left → top-right volumetric flow
+========================================= */
+.about-partner-section::before {
+  content: "";
+  position: absolute;
+  inset: -90% -40%;
+  pointer-events: none;
+  z-index: 0;
+  background:
+    /* CORE LIGHT — intense soft centre */
+    radial-gradient(
+      2400px 260px at 52% 65%,
+      rgba(255, 255, 255, 0.85) 0%,
+      rgba(255, 255, 255, 0.60) 18%,
+      rgba(255, 255, 255, 0.28) 40%,
+      rgba(255, 255, 255, 0.08) 60%,
+      transparent 75%
+    ),
+    /* DIAGONAL BODY — lowered so beam passes after 3rd circle */
+    radial-gradient(
+      2600px 300px at 32% 88%,
+      rgba(255, 255, 255, 0.16) 0%,
+      rgba(255, 255, 255, 0.09) 35%,
+      transparent 70%
+    ),
+    /* EXIT GLOW — keep bright top-right finish */
+    radial-gradient(
+      2200px 260px at 75% 38%,
+      rgba(255, 255, 255, 0.60) 0%,
+      rgba(255, 255, 255, 0.30) 40%,
+      rgba(255, 255, 255, 0.10) 65%,
+      transparent 80%
+    ),
+    /* ATMOSPHERIC WASH */
+    radial-gradient(
+      3200px 520px at 50% 60%,
+      rgba(255, 255, 255, 0.10) 0%,
+      transparent 65%
+    );
+    
+  /* Soft cinematic diffusion */
+  filter: blur(70px);
+  /* Bottom-left → top-right direction */
+  transform: rotate(42deg) scale(1.55);
+  opacity: 0.95;
+  mask-image: radial-gradient(120% 60% at 50% 50%, black 40%, transparent 100%);
+  -webkit-mask-image: radial-gradient(120% 60% at 50% 50%, black 40%, transparent 100%);
+}
+/* TOP + BOTTOM MERGE FADE */
+.about-partner-section::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+  background:
+    linear-gradient(to bottom, rgba(10, 10, 10, 1) 0%, rgba(10, 10, 10, 0.7) 15%, transparent 35%),
+    linear-gradient(to top, rgba(10, 10, 10, 1) 0%, rgba(10, 10, 10, 0.7) 15%, transparent 35%);
+}
+/* Container stays above gradient */
+.about-partner-container {
+  position: relative;
+  z-index: 3;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+.about-partner-circle {
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  background: #ffffff;
+  border: 2px solid rgba(255, 255, 255, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  padding: 10px;
+  z-index: 4;
+}
+.about-partner-logo {
+  max-width: 125%;
+  max-height: 125%;
+  object-fit: contain;
+  transition: transform 0.3s ease;
+}
+/* ===============================
+   RESPONSIVE DESIGN (iPad & Mobile)
+================================ */
+/* iPad Portrait (820px) and smaller */
+@media (max-width: 820px) {
+  
+  /* Hero Section iPad Adjustments */
+  .about-hero-section {
+    min-height: 90vh;
+    padding: 0 5%;
+    align-items: flex-end;
+  }
+  
+  .about-hero-content {
+    max-width: 100%;
+    margin-bottom: -25px;
+    padding-bottom: 30px;
+  }
+  .about-hero-heading {
+    font-size: clamp(32px, 5vw, 48px);
+    margin-bottom: 20px;
+  }
+  /* Partner Section iPad Adjustments */
+  .about-partner-section {
+    width: 100%; /* Fixes the cut-off issue */
+    height: auto;
+    padding: 40px 4%;
+  }
+  .about-partner-container {
+    gap: 20px; /* Reduced gap to fit all 4 icons */
+    justify-content: space-evenly;
+    flex-wrap: nowrap; /* Forces icons onto one line */
+  }
+  .about-partner-circle {
+    width: 140px; /* Slightly smaller circles to fit iPad width */
+    height: 140px;
+    flex-shrink: 0;
+  }
+  .about-partner-logo {
+    max-width: 110%;
+    max-height: 110%;
+  }
+}
+/* Mobile Phones (768px) and smaller */
+@media (max-width: 768px) {
+  
+  /* Hero Section Mobile Adjustments */
+  .about-hero-heading {
+    font-size: 28px;
+    margin-bottom: 16px;
+  }
+  .about-hero-text {
+    font-size: 14px;
+    line-height: 1.6;
+  }
+  /* Partner Section Mobile Adjustments */
+  .about-partner-section {
+    padding: 20px 4%;
+  }
+  .about-partner-container {
+    gap: 10px;
+    /* Allow horizontal scroll on phones if icons don't fit */
+    overflow-x: auto; 
+    scrollbar-width: none; /* Hide scrollbar Firefox */
+    -ms-overflow-style: none; /* Hide scrollbar IE and Edge */
+  }
+  .about-partner-container::-webkit-scrollbar {
+    display: none; /* Hide scrollbar Chrome, Safari and Opera */
+  }
+  .about-partner-circle {
+    width: 80px; /* Much
+smaller circles for phones */
+height: 80px;
+padding: 5px;
+}
+
+.about-partner-logo {
+max-width: 100%;
+max-height: 100%;
+}
+}

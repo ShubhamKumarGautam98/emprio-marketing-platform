@@ -1,0 +1,97 @@
+/* ===============================
+   GROWTH ENGINES SECTION
+================================ */
+.growth-section {
+  background-color: #000;
+  padding: 120px 6%;
+  color: #fff;
+  text-align: center;
+}
+
+@media (max-width: 768px) {
+  .growth-section {
+    padding: 60px 4%;
+  }
+}
+
+.growth-heading {
+  font-size: clamp(28px, 3vw, 42px);
+  font-weight: 600;
+  margin-bottom: 80px;
+}
+
+@media (max-width: 768px) {
+  .growth-heading {
+    font-size: 24px;
+    margin-bottom: 40px;
+  }
+}
+
+/* ===============================
+   GROWTH ENGINES GRID
+================================ */
+.growth-engines-grid {
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  gap: 40px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+@media (max-width: 1200px) {
+  .growth-engines-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .growth-engines-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .growth-engines-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+  }
+}
+
+/* ===============================
+   GROWTH CIRCLE
+================================ */
+.growth-circle {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  background-color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  padding: 15px;
+}
+
+@media (max-width: 768px) {
+  .growth-circle {
+    width: 80px;
+    height: 80px;
+    padding: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .growth-circle {
+    width: 70px;
+    height: 70px;
+    padding: 8px;
+  }
+}
+
+.growth-logo {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  transition: transform 0.3s ease;
+}

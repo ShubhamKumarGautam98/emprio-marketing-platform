@@ -1,0 +1,284 @@
+/* ===============================
+   WHY CHOOSE US SECTION
+================================ */
+.why-section {
+  background-color: #000;
+  padding: 10px 36px 15px;
+  margin-bottom: 0;
+  color: #fff;
+  position: relative;   /* required for overlay */
+  overflow: hidden;
+}
+
+/* TOP CINEMATIC GRADIENT */
+.why-section::before {
+  content: "";
+  position: absolute;
+  top: -120px;          /* pulls gradient slightly above */
+  left: 0;
+  right: 0;
+  height: 260px;
+  pointer-events: none;
+  z-index: 0;
+
+  background:
+    radial-gradient(
+      120% 140% at 50% 0%,
+      rgba(255,255,255,0.14) 0%,
+      rgba(255,255,255,0.06) 25%,
+      transparent 65%
+    ),
+    linear-gradient(
+      to bottom,
+      rgba(10,10,10,0.9) 0%,
+      rgba(10,10,10,0.6) 35%,
+      transparent 100%
+    );
+
+  filter: blur(35px);
+}
+
+@media (max-width: 768px) {
+  .why-section {
+    padding: 60px 18px 37px;
+    margin-bottom: -210px;
+  }
+}
+
+.why-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 80px;
+  flex-wrap: wrap;
+}
+
+@media (max-width: 768px) {
+  .why-wrapper {
+    flex-direction: column;
+    gap: 32px;
+  }
+}
+
+/* ===============================
+   IMAGE WRAP
+================================ */
+.why-image-wrap {
+  position: relative;
+  flex: 1 1 480px;
+  max-width: 400px;
+}
+
+/* ⭐ GRADIENT OVERLAY ADDED HERE */
+.why-image-wrap::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 4px;
+  pointer-events: none;
+  z-index: 1;   /* 👈 overlay layer */
+
+  /* Cinematic right-side fade overlay */
+  background: 
+     linear-gradient(to right, rgba(0, 0, 0, 0.318), rgba(0,0,0,0) 40%),
+
+    /* RIGHT fade */
+    linear-gradient(to left, rgba(0, 0, 0, 0.259), rgba(0,0,0,0) 40%),
+
+    /* BOTTOM fade */
+    linear-gradient(to top, rgba(0, 0, 0, 0.929), rgba(0, 0, 0, 0.189) 45%);
+     
+  
+}
+
+@media (max-width: 768px) {
+  .why-image-wrap {
+    max-width: 100%;
+    width: 100%;
+  }
+}
+
+.why-image {
+  width: 100%;
+  height: 500px;
+  border-radius: 4px;
+  display: block;
+  object-fit: cover;
+  position: relative;
+  z-index: 0;
+}
+
+@media (max-width: 768px) {
+  .why-image {
+    height: 430px;
+  }
+}
+
+/* ===============================
+   CONTENT
+================================ */
+.why-content {
+  position: relative;
+  z-index: 2; 
+  flex: 1 1 520px;
+}
+
+@media (max-width: 768px) {
+  .why-content {
+    width: 100%;
+    margin-top: -70px;
+  }
+}
+
+.why-heading {
+  font-size: clamp(28px, 3vw, 44px);
+  font-weight: 600;
+  line-height: 1.2;
+  margin-bottom: 32px;
+}
+
+@media (max-width: 768px) {
+  .why-heading {
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+}
+
+.why-para {
+  max-width: 600px;
+}
+
+@media (max-width: 768px) {
+  .why-para {
+    max-width: 100%;
+  }
+}
+
+.why-subheading {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 16px;
+}
+
+@media (max-width: 768px) {
+  .why-subheading {
+    font-size: 16px;
+    margin-bottom: 12px;
+  }
+}
+
+.why-text {
+  font-size: 16px;
+  line-height: 1.8;
+  color: #dcdcdc;
+  margin-bottom: 20px;
+}
+
+@media (max-width: 768px) {
+  .why-text {
+    font-size: 14px;
+    line-height: 1.6;
+    margin-bottom: 16px;
+  }
+}
+
+.why-button {
+  margin-top: 24px;
+  padding: 14px 36px;
+  border-radius: 40px;
+  border: 2px solid #fff;
+  background: transparent;
+  color: #fff;
+  font-size: 14px;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+.why-button:hover {
+  background: #fff;
+  color: #000;
+}
+
+@media (max-width: 768px) {
+  .why-button {
+    padding: 12px 28px;
+    font-size: 12px;
+    width: 100%;
+    margin-top: 16px;
+    margin-left: 0;   
+  }
+}
+/* ===============================
+   TABLET PORTRAIT (769px–900px)
+================================ */
+@media (min-width: 820px) and (max-width: 1180px) {
+
+  .why-section {
+    padding: 60px 28px 40px;
+  }
+
+  .why-wrapper {
+    flex-direction: column;      /* stack like premium tablet layouts */
+    gap: 36px;
+  }
+
+  .why-image-wrap {
+    max-width: 100%;
+  }
+
+  .why-image {
+    height: 460px;
+    object-fit: cover;
+    
+  }
+
+  .why-content {
+    width: 100%;
+  }
+
+  .why-heading {
+    font-size: 32px;
+    line-height: 1.25;
+  }
+
+  .why-text {
+    font-size: 15px;
+    line-height: 1.75;
+  }
+
+  .why-button {
+    align-self: flex-start;
+  }
+}
+/* ===============================
+   TABLET LANDSCAPE (901px–1024px)
+================================ */
+@media (min-width: 901px) and (max-width: 1024px) {
+
+  .why-section {
+    padding: 70px 32px 50px;
+  }
+
+  .why-wrapper {
+    gap: 48px;           /* reduce desktop 80px gap */
+  }
+
+  .why-image-wrap {
+    flex: 1 1 420px;
+    max-width: 360px;    /* prevents image dominating tablet */
+  }
+
+  .why-image {
+    height: 480px;
+  }
+
+  .why-heading {
+    font-size: 36px;
+    line-height: 1.25;
+  }
+
+  .why-text {
+    font-size: 15.5px;
+  }
+
+}

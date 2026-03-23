@@ -1,0 +1,297 @@
+/* ===============================
+   NAVBAR - WITH ADAPTIVE BACKGROUND
+================================ */
+
+/* Base Navbar Styles */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  transition: background-color 0.4s ease, box-shadow 0.4s ease;
+  backdrop-filter: blur(10px); /* Subtle blur effect */
+}
+
+/* Desktop Navbar */
+.navbar.desktop {
+  height: 72px;
+  padding: 0 48px;
+}
+
+/* Mobile Navbar */
+.navbar.mobile {
+  height: 60px;
+  padding: 0 20px;
+  justify-content: space-between;
+}
+
+/* ===============================
+   THEME SWITCHING (Light/Dark Backgrounds)
+================================ */
+
+/* Dark Theme - For dark backgrounds */
+.navbar.dark-theme {
+  background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent dark */
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+.navbar.dark-theme .navbar-link {
+  color: #ffffff;
+  font-weight: 400;
+}
+
+.navbar.dark-theme .navbar-link:hover {
+  color: #cccccc;
+  border-bottom-color: #cccccc;
+}
+
+.navbar.dark-theme .hamburger-bar {
+  background-color: #ffffff;
+}
+
+/* Light Theme - For light backgrounds */
+.navbar.light-theme {
+  background-color: rgba(255, 255, 255, 0.95); /* Semi-transparent white */
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.navbar.light-theme .navbar-link {
+  color: #000000;
+  font-weight: 600;
+  text-shadow: 0 0 1px rgba(0, 0, 0, 0.1);
+}
+
+.navbar.light-theme .navbar-link:hover {
+  color: #1a1a1a;
+  border-bottom-color: #1a1a1a;
+}
+
+.navbar.light-theme .hamburger-bar {
+  background-color: #000000;
+}
+
+/* ===============================
+   LOGO - CENTERED ON NON-HOME PAGES
+================================ */
+.navbar-logo-link {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  z-index: 1001;
+  transition: opacity 0.3s ease;
+}
+
+.navbar-logo-link:hover {
+  opacity: 0.8;
+}
+
+.navbar-logo.desktop {
+  height: 100px;
+  object-fit: contain;
+}
+
+.navbar-logo.mobile {
+  height: 100px;
+  object-fit: contain;
+}
+
+/* ===============================
+   DESKTOP NAVIGATION LINKS
+================================ */
+.navbar-right-links {
+  display: flex;
+  gap: 32px;
+  position: absolute;
+  right: 48px;
+}
+
+.navbar-link {
+  background: transparent;
+  text-decoration: none;
+  font-size: 14px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  transition: color 0.3s ease, border-bottom 0.3s ease, font-weight 0.3s ease;
+  border-bottom: 2px solid transparent;
+  padding-bottom: 4px;
+  position: relative;
+}
+
+.navbar-link:hover {
+  border-bottom-color: currentColor;
+}
+
+.navbar-link:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 4px;
+}
+
+/* ===============================
+   MOBILE HAMBURGER MENU
+================================ */
+.navbar-hamburger {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 30px;
+  height: 30px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  position: absolute;
+  right: 20px;
+  z-index: 1001;
+}
+
+.navbar-hamburger:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 4px;
+}
+
+.hamburger-bar {
+  width: 30px;
+  height: 3px;
+  border-radius: 2px;
+  transition: all 0.3s ease;
+  transform-origin: center;
+}
+
+.hamburger-bar.open:nth-child(1) {
+  transform: rotate(45deg) translateY(10px);
+}
+
+.hamburger-bar.open:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger-bar.open:nth-child(3) {
+  transform: rotate(-45deg) translateY(-10px);
+}
+
+/* ===============================
+   MOBILE MENU DROPDOWN
+================================ */
+.mobile-menu {
+  position: fixed;
+  top: 60px;
+  left: 0;
+  right: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px 0;
+  z-index: 999;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease;
+  animation: slideDown 0.3s ease-out;
+}
+
+.mobile-menu.dark-theme {
+  background: rgba(0, 0, 0, 0.95);
+}
+
+.mobile-menu.light-theme {
+  background: rgba(255, 255, 255, 0.95);
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.mobile-menu-link {
+  text-decoration: none;
+  font-size: 18px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  margin: 10px 0;
+  padding: 10px 20px;
+  width: 100%;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.mobile-menu.dark-theme .mobile-menu-link {
+  color: #ffffff;
+  font-weight: 400;
+}
+
+.mobile-menu.light-theme .mobile-menu-link {
+  color: #000000;
+  font-weight: 600;
+}
+
+.mobile-menu.dark-theme .mobile-menu-link:hover,
+.mobile-menu.dark-theme .mobile-menu-link:focus {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.mobile-menu.light-theme .mobile-menu-link:hover,
+.mobile-menu.light-theme .mobile-menu-link:focus {
+  background: rgba(0, 0, 0, 0.1);
+}
+
+/* ===============================
+   RESPONSIVE BREAKPOINTS
+================================ */
+
+@media (max-width: 767px) {
+  .navbar-right-links {
+    display: none;
+  }
+}
+
+@media (min-width: 768px) {
+  .navbar-hamburger,
+  .mobile-menu {
+    display: none;
+  }
+}
+
+/* ===============================
+   ACCESSIBILITY
+================================ */
+@media (prefers-reduced-motion: reduce) {
+  .navbar,
+  .navbar-link,
+  .hamburger-bar,
+  .mobile-menu {
+    transition: none;
+  }
+  
+  .mobile-menu {
+    animation: none;
+  }
+}
+/* =====================================================
+   TABLET ONLY — Move logo to TOP LEFT
+   (iPad Portrait + Landscape)
+===================================================== */
+@media screen and (min-width: 768px) and (max-width: 1194px) {
+
+  /* Move logo from centered to left */
+  .navbar-logo-link {
+    left: 48px;              /* aligns with desktop padding */
+    transform: none;         /* remove centering shift */
+  }
+
+  /* Prevent overlap with nav links */
+  .navbar-right-links {
+    right: 48px;
+  }
+
+}
